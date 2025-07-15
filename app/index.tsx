@@ -1,8 +1,11 @@
 import images from "@/constants/images";
+import { useRouter } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
+
+  const router = useRouter()
   return (
     <SafeAreaView className="flex-1 bg-white">
       <View className="flex-1">
@@ -24,13 +27,13 @@ export default function Index() {
           </View>
 
           <View className="space-y-4 mt-10">
-            <TouchableOpacity className="bg-white py-4 rounded-xl">
+            <TouchableOpacity className="bg-white py-4 rounded-xl" onPress={()=> router.push('/auth/signUp')}>
               <Text className="text-primary text-center text-base font-bold">
                 Get Started
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity className="py-4">
+            <TouchableOpacity className="py-4" onPress={()=> router.push('/auth/signIn')}>
               <Text className="text-white text-center text-base font-satoshi">
                 Already have an account?
               </Text>
